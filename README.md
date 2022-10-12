@@ -7,12 +7,11 @@ CDN: (may be temporary)
     https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/src/videojs-unmute.min.js  
 
 
-
 ## Basic Usage  
 
 Call the plugin: 
 
-    const myPlayer = videojs("vid1");
+    const myPlayer = videojs("myvideoID");
     // Call the plugin
     myPlayer.unmuteButton();  
     
