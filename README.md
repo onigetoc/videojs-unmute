@@ -4,8 +4,8 @@ Video.js plugin to mute automatically a video in autoplay mode and will add a Un
 
 CDN for JS and CSS files: (may be temporary - include the js file after videojs javascript file)
 
-    https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.js  
-    https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css
+    <link href="//cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.js"></script>
 
 
 ## Basic Usage  
@@ -20,13 +20,15 @@ Call the plugin:
 
 The button is just a suggestion since you can click anywhere on the plugin.
 
-Visual demo
-
+#### Demo on Codepen 
 ![View demo](https://raw.githubusercontent.com/onigetoc/videojs-unmute/main/unmuteButon.gif)
 
+### Simple demo on Codepen  
+https://codepen.io/onigetoc/full/WNJLEJj
 
 #### description 
-Video.js plugin to mute automatically a video in autoplay mode and will add a Unmute button like Youtube when a video is set to autoplay
+Video.js plugin to mute automatically a video in autoplay mode and will add a Unmute button like Youtube when a video is set to autoplay.
+Cross-compatibility for Video.js 5 and 6.
 
 #### To do
 * Add language frome browser language
