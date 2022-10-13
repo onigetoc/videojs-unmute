@@ -21,7 +21,7 @@ Call the plugin:
 The button is just a suggestion since you can click anywhere on the plugin.
 
 #### Visual demo
-![View demo](https://raw.githubusercontent.com/onigetoc/videojs-unmute/main/unmuteButon.gif)
+![View demo](https://raw.githubusercontent.com/onigetoc/videojs-unmute/main/unmuteButon7.gif)
 
 ### Simple demo on Codepen  
 https://codepen.io/onigetoc/full/WNJLEJj
