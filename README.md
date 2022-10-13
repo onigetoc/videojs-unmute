@@ -40,7 +40,7 @@ Translate to 11 of the most spoken languages in the world
 
 #### To do
 * ~~Add language from browser language~~
-* include css from the js file (may work in the next hours)
+* ~~include css from the js file (may work in the next hours)~~ (Problem with :before style may just use normal .css file)
 * Make it work from npm
 
 #### Help & suggestions 
