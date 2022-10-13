@@ -109,7 +109,7 @@ registerPlugin("unmuteButton", function () {
           .getElementById("vid1")
           .getElementsByClassName("vjs-unmute-overlay")[0];
         // var unmutedbutton = document.querySelector('#foo .bar');
-        unmutedbutton.textContent = "UNMUTE";
+        unmutedbutton.textContent = translated;
         unmutedbutton.classList.add("vjs-unmute");
         unmutedbutton.setAttribute("style", "color:white;");
 
