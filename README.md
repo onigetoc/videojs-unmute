@@ -20,15 +20,24 @@ Call the plugin:
 
 The button is just a suggestion since you can click anywhere on the plugin.
 
-#### Demo on Codepen 
+#### Visual demo
 ![View demo](https://raw.githubusercontent.com/onigetoc/videojs-unmute/main/unmuteButon.gif)
 
 ### Simple demo on Codepen  
 https://codepen.io/onigetoc/full/WNJLEJj
 
-#### description 
+**Githack preview:** 
+https://raw.githack.com/onigetoc/videojs-unmute/main/index.html
+
+#### Description 
 Video.js plugin to mute automatically a video in autoplay mode and will add a Unmute button like Youtube when a video is set to autoplay.
 Cross-compatibility for Video.js 5 and 6.
+
+#### Languages 
+Translate to 11 of the most spoken languages in the world
+
+    translate={"en":"UNMUTE","zh":"激活声音","hi":"ध्वनि सक्रिय करें","es":"ACTIVAR SONIDO","fr":"ACTIVER LE SON","ar":"تنشيط الصوت","bn":"নিঃশব্দ","ru":"ВКЛЮЧИТЬ ЗВУК","pt":"ATIVAR SOM","de":"TON AKTIVIEREN","id":"AKTIFKAN SUARA"};  
+
 
 #### To do
 * Add language frome browser language
