@@ -38,9 +38,8 @@ Translate to 11 of the most spoken languages in the world
 
     translate={"en":"UNMUTE","zh":"激活声音","hi":"ध्वनि सक्रिय करें","es":"ACTIVAR SONIDO","fr":"ACTIVER LE SON","ar":"تنشيط الصوت","bn":"নিঃশব্দ","ru":"ВКЛЮЧИТЬ ЗВУК","pt":"ATIVAR SOM","de":"TON AKTIVIEREN","id":"AKTIFKAN SUARA"};  
 
-
 #### To do
-* Add language frome browser language
+* ~~Add language from browser language~~
 * include css from the js file (may work in the next hours)
 * Make it work from npm
 
