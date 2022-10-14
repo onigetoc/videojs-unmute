@@ -1,0 +1,15 @@
+{
+  "name": "@onigetoc/videojs-unmute",
+  "version": "1.1.0",
+  "description": "Video.js plugin to mute automatically a video in autoplay mode and will add a Unmute button like Youtube when a video is set to autoplay",
+  "license": "MIT",
+  "repository": "onigetoc/videojs-unmute",
+  "main": "index.js",
+  "keywords": [
+    "videojs",
+    "npm",
+    "package",
+    "videojs-unmute",
+    "unmute video"
+  ]
+}
