@@ -106,7 +106,7 @@ registerPlugin("unmuteButton", function () {
 
         let unmutedbutton = document.createElement("span");
         let getoverlay = document
-          .getElementById("vid1")
+          .getElementById(thisplayerid)
           .getElementsByClassName("vjs-unmute-overlay")[0];
         // var unmutedbutton = document.querySelector('#foo .bar');
         unmutedbutton.textContent = translated;
