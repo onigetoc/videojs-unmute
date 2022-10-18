@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <title>Videojs - Advanced Autoplay + jQuery + videojs-unmute.js Plugin</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video-js.min.css'>
+  <link href="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+<div id="videocontainer" class="classtest">
+  <video id="vid1" class="video-js vjs-default-skin vjs-fluid" poster="http://i.imgur.com/xxqm7EE.png" width="640" height="360" controls playsinline autoplay preload="none" data-setup='{ "techOrder": ["html5"], "sources": [{ "type": "application/x-mpegURL", "src": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"}]}'></video>
+   </div>
+  
+  
+  
+    <ul id="vidlink">
+      <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8">Play HLS</a></li>
+      <li><a id="myLink" title="Click video" href="https://rt-fra.rttv.com/live/rtfrance/playlist.m3u8">Play HLS 2</a></li>
+      <li><a id="myLink1" title="Click video" href="http://jplayer.org/video/m4v/Incredibles_Teaser.m4v">Play .M4V</a></li>
+      <li><a id="myLink2" title="Click video" href="//assets3.ign.com/videos/zencoder/2016/06/15/640/7080c56a76e2b74ec8ecfe4c224441d4-500000-1466028542-w.mp4">Play .MP4</a></li>
+      <li><a id="myLink3" title="Click video" href="https://www.youtube.com/watch?v=kkGeOWYOFoA">Play Youtube</a></li>
+      <li><a id="myLink4" title="Click video" href="https://www.youtube.com/watch?v=iIMXsvB58W0">Play Youtube Live</a></li>
+      <li><a id="myLink5" title="Click video" href="https://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd">Play Dash (.mpd)</a></li>
+      <li><a id="myLink" title="Click video" href="http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v">Play .M4V</a></li>
+
+      <li><a id="myLink6" title="Click video" href="http://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm">Play .webm</a></li>
+      <li><a id="myLink7" title="Click video" href="https://github.com/robovm/apple-ios-samples/blob/master/avTouch/sample.m4a?raw=true">Play .M4a (audio)</a></li>
+      <li><a id="myLink8" title="Click video" href="https://rt-news-gd.secure2.footprint.net/1103.m3u8
+">Play .m3u8 streaming</a></li>
+      <li><a id="myLink9" title="Click video" href="http://techslides.com/demos/sample-videos/small.flv">Play .FLV (Do not work on JSFiddle)</a></li>
+    </ul>
+  
+<!--    <script tsrc="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script> -->
+
+<!-- <video id="vid12"</video> -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<!-- partial -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video.min.js"></script>
+<!--  <script  src="https://hlsiptv.com/js/videojs-unmute-GITHACK-TRANSLATE.js"></script>-->
+<!--  <script  src="./videojs-unmute.js"></script>-->
+<!--  <script  src="./script.js"></script>-->
+  
+<script>
+  //    if not developer mode add timestamp to prevent caching
+  var timeStamp = typeof bDeveloperMode === 'undefined' ? ('?_=' + new Date()).valueOf() : '';
+  document.writeln('<scr' + 'ipt type="text/javascript" src="./videojs-unmute.js' + timeStamp + '"></scr' + 'ipt>');
+  document.writeln('<scr' + 'ipt type="text/javascript" src="./script.js' + timeStamp + '"></scr' + 'ipt>');
+</script>
+  
+
+</body>
+</html>
