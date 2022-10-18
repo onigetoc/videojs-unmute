@@ -67,6 +67,15 @@
 <script>
 /**************************** GET LINK AND LOAD URL ******************************/
 
+/**************************** BASIC VIDEOJS VIDEO ******************************/
+const myPlayer = videojs("vid1");
+myPlayer.unmuteButton();
+/**************************** BASIC VIDEOJS VIDEO ******************************/
+/****** EVERY ABOVE THIS HAS NOTHING TO DO WITH THE VIDEOJS UNMUTE PLUGING BUT MAY HELP TO ADD SOME FUNCTION TO VIDEOJS WITH JQUERY *****/
+
+
+/**************************** GET LINK AND LOAD URL ******************************/
+
 $('#vidlink li a').on('click', function(e) {
   e.preventDefault();
   let vidlink = $(this).attr('href');
@@ -110,6 +119,8 @@ function LoadVideo(vidURL, poster) {
 
 }
 
+
+/**************************** AUTOMATICALLY GET AND SET VIDEO TYPE  ******************************/
 
 function getType(url) {
 
