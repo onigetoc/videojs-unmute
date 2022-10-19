@@ -30,6 +30,9 @@ The button is just a suggestion since you can click anywhere on the video to unm
 #### Simple demo on Codepen  
 https://codepen.io/onigetoc/full/WNJLEJj
 
+#### Complex demo with jQuery on Codepen 
+https://codepen.io/onigetoc/full/VwxRVYj
+
 **Githack preview:** 
 https://raw.githack.com/onigetoc/videojs-unmute/main/index.html
 
