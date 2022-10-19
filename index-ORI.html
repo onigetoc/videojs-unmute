@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videojs - Unmute plugin on Autoplay</title>
+  <link href="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video-js.min.css'>
+</head>
+  
+<style>
+  body {
+    background-color: #111;
+    color: #fff;
+    margin: 20px 500px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    body {
+      margin: 10px;
+    }
+  }
+</style>
+  
+<body>
+<!-- partial:index.partial.html -->
+<!-- https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css -->
+<link href="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.css" rel="stylesheet">
+  
+
+<div id="videocontainer" class="classtest">
+  <video id="vid1" class="video-js vjs-default-skin vjs-fluid" poster="https://i.imgur.com/xxqm7EE.png" width="640" height="360" controls playsinline autoplay preload="none" data-setup='{ "techOrder": ["html5"], "sources": [{ "type": "application/x-mpegURL", "src": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"}]}'></video>
+</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute@1.1.0/dist/videojs-unmute.min.js"></script>
+<!--  <script src="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.js"></script>-->
+<!-- partial -->
+<script type="text/javascript">
+    const myPlayer = videojs("vid1");
+    // CALL THE PLUGIN
+    myPlayer.unmuteButton();
+</script> 
+
+</body>
+</html>
