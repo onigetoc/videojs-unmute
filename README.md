@@ -10,7 +10,7 @@ Video.js plugin to mute automatically a video in autoplay mode and will add a Un
 
 #### Latest version
 
-    <script src="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute@1.0.4/dist/videojs-unmute.jsscript>
+    <script src="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute@1.0.4/dist/videojs-unmute.js</script>
 
 ## Basic Usage  
 
