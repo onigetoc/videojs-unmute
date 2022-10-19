@@ -44,7 +44,7 @@ if (typeof translate[shortLang] === "undefined") {
 
 // for(shortLang of Object.keys(translate)){
 // // console.log(shortLang);
-//   alert(translate[shortLang])
+//   console.log(translate[shortLang])
 // }
 
 // Object.keys(translate).forEach(function(key) {
