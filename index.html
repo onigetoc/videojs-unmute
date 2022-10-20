@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <title>Videojs - Advanced Autoplay + jQuery + videojs-unmute.js Plugin</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video-js.min.css'>
-<!--  <link href="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css" rel="stylesheet">-->
-  <link rel="stylesheet" href="./dist/videojs-unmute.min.css">
+  <!--  <link href="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute/dist/videojs-unmute.min.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="./dist/videojs-unmute.min.css?1=2">
 
-  
+
   <style>
     body {
       background-color: #111;
@@ -23,169 +24,167 @@
     }
 
   </style>
-  
+
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 
-<div id="videocontainer" class="classtest">
-  <video id="vid1" class="video-js vjs-default-skin vjs-fluid" poster="https://i.imgur.com/xlYfLmH.png" width="640" height="360" controls playsinline autoplay preload="none" data-setup='{ "techOrder": ["html5"], "sources": [{ "type": "application/x-mpegURL", "src": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"}]}'></video>
-   </div>
-  
-  
-  
-    <ul id="vidlink">
-      <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8">Play HLS</a></li>
-      <li><a id="myLink" title="Click video" href="https://rt-fra.rttv.com/live/rtfrance/playlist.m3u8">Play HLS 2</a></li>
-      <li><a id="myLink1" title="Click video" href="http://jplayer.org/video/m4v/Incredibles_Teaser.m4v">Play .M4V</a></li>
-      <li><a id="myLink2" title="Click video" href="//assets3.ign.com/videos/zencoder/2016/06/15/640/7080c56a76e2b74ec8ecfe4c224441d4-500000-1466028542-w.mp4">Play .MP4</a></li>
-      <li><a id="myLink3" title="Click video" href="https://www.youtube.com/watch?v=kkGeOWYOFoA">Play Youtube</a></li>
-      <li><a id="myLink4" title="Click video" href="https://www.youtube.com/watch?v=iIMXsvB58W0">Play Youtube Live</a></li>
-      <li><a id="myLink5" title="Click video" href="https://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd">Play Dash (.mpd)</a></li>
-      <li><a id="myLink" title="Click video" href="http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v">Play .M4V</a></li>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <li><a id="myLink6" title="Click video" href="http://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm">Play .webm</a></li>
-      <li><a id="myLink7" title="Click video" href="https://github.com/robovm/apple-ios-samples/blob/master/avTouch/sample.m4a?raw=true">Play .M4a (audio)</a></li>
-      <li><a id="myLink8" title="Click video" href="https://rt-news-gd.secure2.footprint.net/1103.m3u8
-">Play .m3u8 streaming</a></li>
-      <li><a id="myLink9" title="Click video" href="http://techslides.com/demos/sample-videos/small.flv">Play .FLV (Do not work on JSFiddle)</a></li>
-    </ul>
-  
-<!--    <script tsrc="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script> -->
+  <!-- NO NEED FOR A WRAPPER SINCE IS AUTOWRAP AUTOMATICALLY NOW -->
+  <!--  <div id="videocontainer" class="classtest">-->
+    <video id="vid1" class="video-js vjs-default-skin vjs-fluid" poster="https://i.imgur.com/xlYfLmH.png" width="640" height="360" controls playsinline autoplay preload="none" data-setup='{ "techOrder": ["html5"], "sources": [{ "type": "application/x-mpegURL", "src": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"}]}'></video>
+<!-- </div>-->
 
-<!-- <video id="vid12"</video> -->
+
+  <ul id="vidlink">
+    <li><a id="myLink" title="Click video" href="https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8">Play HLS</a></li>
+    <li><a id="myLink0" title="Click video" href="https://rt-fra.rttv.com/live/rtfrance/playlist.m3u8">Play HLS 2</a></li>
+    <li><a id="myLink1" title="Click video" href="http://jplayer.org/video/m4v/Incredibles_Teaser.m4v">Play .M4V</a></li>
+    <li><a id="myLink2" title="Click video" href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">Play .MP4</a></li>
+    <li><a id="myLink9" title="Click video" href="http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v">Play .M4V</a></li>
+
+    <li><a id="myLink6" title="Click video" href="http://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm">Play .webm</a></li>
+    <li><a id="myLink7" title="Click video" href="https://github.com/robovm/apple-ios-samples/blob/master/avTouch/sample.m4a?raw=true">Play .M4a (audio)</a></li>
+    <li><a id="myLink8" title="Click video" href="https://rcavlive.akamaized.net/hls/live/664045/cancbvt/master.m3u8">Play .m3u8 ici-RC</a></li>
+    <li><a id="myLink5" title="Click video" href="https://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd">Play Dash (.mpd)</a></li>
+    <li><a id="myLink3" title="Click video" href="https://www.youtube.com/watch?v=kkGeOWYOFoA">Play Youtube</a></li>
+    <li><a id="myLink4" title="Click video" href="https://www.youtube.com/watch?v=iIMXsvB58W0">Play Youtube Live</a></li>
+    <li><a id="myLink10" title="Click video" href="http://techslides.com/demos/sample-videos/small.flv">Play .FLV (Do not work now)</a></li>
+  </ul>
+
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<!-- partial -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video.min.js"></script>
-<!--  <script  src="https://hlsiptv.com/js/videojs-unmute-GITHACK-TRANSLATE.js"></script>-->
-  <script  src="./dist/videojs-unmute.js"></script>
-<!--  <script  src="./script.js"></script>-->
   
-<script>
-/**************************** GET LINK AND LOAD URL ******************************/
+  <script src="./dist/videojs-unmute.min.js"></script>
+<!--  <script src="./dist/videojs-unmute.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/gh/onigetoc/videojs-unmute@main/dist/videojs-unmute.min.js"></script>-->
 
-/**************************** BASIC VIDEOJS VIDEO ******************************/
-const myPlayer = videojs("vid1");
-myPlayer.unmuteButton();
-/**************************** BASIC VIDEOJS VIDEO ******************************/
-/****** EVERY ABOVE THIS HAS NOTHING TO DO WITH THE VIDEOJS UNMUTE PLUGING BUT MAY HELP TO ADD SOME FUNCTION TO VIDEOJS WITH JQUERY *****/
-
-
-/**************************** GET LINK AND LOAD URL ******************************/
-
-$('#vidlink li a').on('click', function(e) {
-  e.preventDefault();
-  let vidlink = $(this).attr('href');
-//  $('#vsg-vurl').val(vidlink);  
-//  $('input[type=submit]').click(); 
-  console.log(vidlink);
-  LoadVideo(vidlink);
-});
-
-/**************************** GET TYPE  ******************************/
-let poster;
-
-function LoadVideo(vidURL, poster) {
-
-  let type = getType(vidURL);
-
-  console.log("Video Type: "+type);
-
-  if (getYtId(vidURL))
-    poster = "http://img.youtube.com/vi/" + getYtId(vidURL) + "/hqdefault.jpg";
-
-  myPlayer.src({
-    "src": vidURL,
-    "type": type
-  });
-  if (poster)
-    myPlayer.poster(poster);
-  else
-  	myPlayer.poster("//i.imgur.com/aE0LoTe.png");
-
-  // play seem to trigger to fast before Youtube is ready
-  
-  //myPlayer.pause();
-  myPlayer.load();
-  myPlayer.play();
-/*   setTimeout(function() {
-    myPlayer.play();
-  }, 500); */
-  
-  return false;
-
-}
+  <script>
+    
+    /**************************** BASIC VIDEOJS VIDEO ******************************/
+    const myPlayer = videojs("vid1");
+    myPlayer.unmuteButton();
+    /**************************** BASIC VIDEOJS VIDEO ******************************/
+    
+    /****** EVERY JAVASCRIPT BELOW THIS HAS NOTHING TO DO WITH THE VIDEOJS UNMUTE PLUGING BUT MAY HELP TO ADD SOME FUNCTION TO VIDEOJS WITH JAVASCRIPT & JQUERY *****/
 
 
-/**************************** AUTOMATICALLY GET AND SET VIDEO TYPE  ******************************/
+    /**************************** GET LINK AND LOAD URL ******************************/
+    $('#vidlink li a').on('click', function(e) {
+      e.preventDefault();
+      let vidlink = $(this).attr('href');
+      //  $('#vsg-vurl').val(vidlink);  
+      //  $('input[type=submit]').click(); 
+      console.log(vidlink);
+      LoadVideo(vidlink);
+    });
 
-function getType(url) {
+    /**************************** GET TYPE  ******************************/
+    let poster;
 
-  switch (true) {
-    /* AUDIO */
-    case /\.(mp4|m4p|m4v|mov)/i.test(url):
-      return 'audio/mpeg';
-      break;
-    case /\.ogg/.test(url):
-      return 'audio/ogg';
-      break;
-    /* VIDEO */
-    case /\.mpd/.test(url):
-      return 'application/dash+xml';
-      break;
-    case /^rtmp:\/\//.test(url):
-      return 'rtmp/mp4';
-      break;
-    case /\.m3u8/.test(url):
-      return 'application/x-mpegurl';
-      break;
-    case /\.(mp4|m4p|m4v|mov)/i.test(url):
-      return 'video/mp4';
-      break;
-    case /\.f4m/.test(url):
-      return 'application/adobe-f4m';
-      break;
-    case /\.flv/.test(url):
-      return 'video/flv';
-      break;
-    case /\.webm/.test(url):
-      return 'video/webm';
-      break;
-    case /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/.test(url):
-      return 'video/youtube';
-      break;
-    case /\.?dailymotion.com/.test(url):
-      return 'video/dailymotion';
-      break;
-    case /\.?vimeo.com/.test(url):
-      return 'video/vimeo';
-      break;
-    default:
-      console.log('could not find link type: "' + url + '" assuming is mp4');
-    return 'video/mp4';
-  }
-};
+    function LoadVideo(vidURL, poster) {
+
+      let type = getType(vidURL);
+
+      console.log("Video Type: " + type);
+
+      if (getYtId(vidURL))
+        poster = "http://img.youtube.com/vi/" + getYtId(vidURL) + "/hqdefault.jpg";
+
+      myPlayer.src({
+        "src": vidURL,
+        "type": type
+      });
+      if (poster)
+        myPlayer.poster(poster);
+      else
+        myPlayer.poster("//i.imgur.com/aE0LoTe.png");
+
+      // play seem to trigger to fast before Youtube is ready
+
+      //myPlayer.pause();
+      myPlayer.load();
+      myPlayer.play();
+      /*   setTimeout(function() {
+          myPlayer.play();
+        }, 500); */
+
+      return false;
+
+    }
 
 
+    /**************************** AUTOMATICALLY GET AND SET VIDEO TYPE  ******************************/
 
-/**************************** GET YOUTUBE VIDEO ID  ******************************/
+    function getType(url) {
 
-function getYtId(url) {
-  //let regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-  let regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
-  let match = url.match(regExp);
+      switch (true) {
+        /* AUDIO */
+        case /\.(mp4|m4p|m4v|mov)/i.test(url):
+          return 'audio/mpeg';
+          break;
+        case /\.ogg/.test(url):
+          return 'audio/ogg';
+          break;
+          /* VIDEO */
+        case /\.mpd/.test(url):
+          return 'application/dash+xml';
+          break;
+        case /^rtmp:\/\//.test(url):
+          return 'rtmp/mp4';
+          break;
+        case /\.m3u8/.test(url):
+          return 'application/x-mpegurl';
+          break;
+        case /\.(mp4|m4p|m4v|mov)/i.test(url):
+          return 'video/mp4';
+          break;
+        case /\.f4m/.test(url):
+          return 'application/adobe-f4m';
+          break;
+        case /\.flv/.test(url):
+          return 'video/flv';
+          break;
+        case /\.webm/.test(url):
+          return 'video/webm';
+          break;
+        case /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/.test(url):
+          return 'video/youtube';
+          break;
+        case /\.?dailymotion.com/.test(url):
+          return 'video/dailymotion';
+          break;
+        case /\.?vimeo.com/.test(url):
+          return 'video/vimeo';
+          break;
+        default:
+          console.log('could not find link type: "' + url + '" assuming is mp4');
+          return 'video/mp4';
+      }
+    };
 
-  if (match && match[2].length == 11) {
-    return match[2];
-  } else {
-    return false;
-  }
-}
-</script>
-  
+
+
+    /**************************** GET YOUTUBE VIDEO ID  ******************************/
+
+    function getYtId(url) {
+      //let regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      let regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+      let match = url.match(regExp);
+
+      if (match && match[2].length == 11) {
+        return match[2];
+      } else {
+        return false;
+      }
+    }
+
+  </script>
+
 
 </body>
+
 </html>

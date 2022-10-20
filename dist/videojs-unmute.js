@@ -73,11 +73,31 @@ registerPlugin("unmuteButton", function () {
   let hasPlayed = false;
   let hasOverlay = false;
   let allevents = false;
+  let isWrapped = false;
 
-  let setVol = player.volume();
-  console.log(setVol);
-  // let volumeLevel = setVol
-  let volumeLevel = 1;
+//  let setVol = player.volume();
+//  console.log(setVol);
+//  // let volumeLevel = setVol
+//  let volumeLevel = 1; 
+  
+
+  const thisplayerid = player.id();
+  const playerid = document.getElementById(thisplayerid);
+
+  if(!isWrapped) {
+
+    // create wrapper container
+    let wrapper = document.createElement('div');
+    wrapper.classList.add("vjs-wrapper");
+    // insert wrapper before el in the DOM tree
+    playerid.parentNode.insertBefore(wrapper, playerid);
+    // move el into wrapper
+    wrapper.appendChild(playerid);
+
+    isWrapped = true;
+
+  }
+//isWrapped = true;
   
 //  
 //  if (player.autoplay()) {
@@ -91,7 +111,35 @@ registerPlugin("unmuteButton", function () {
   player.ready(function () {
     // +++ Wait for loadedmetadata then try to play video +++
     // player.on("loadedmetadata", function () {
+  
+//    const thisplayerid = player.id();
+//    const playerid = document.getElementById(thisplayerid);
 
+//    let isUnmuted = false;
+//    let hasPlayed = false;
+//    let hasOverlay = false;
+//    let allevents = false;
+//    let isWrapped = false;
+    
+    /*********************** video element id that will be wrapped *************************/
+    //var el = document.querySelector('div.wrap_me');
+    
+//    if(!isWrapped) {
+//      
+//      // create wrapper container
+//      let wrapper = document.createElement('div');
+//      wrapper.classList.add("vjs-wrapper");
+//      // insert wrapper before el in the DOM tree
+//      playerid.parentNode.insertBefore(wrapper, playerid);
+//      // move el into wrapper
+//      wrapper.appendChild(playerid);
+//
+//      isWrapped = true;
+//      
+//    }
+    
+
+    /******* CHECK IF AUTOPLAY *******/
     if (player.autoplay()) {
       player.muted(true);
       // alert(player.muted)
@@ -99,9 +147,10 @@ registerPlugin("unmuteButton", function () {
       return false;
     }
 
+    
     // Play video which returns a promise
     let startPlayPromise = player.play();
-    let thisplayerid = player.id();
+//    let thisplayerid = player.id();
     
     player.on("play", function () {
       hasPlayed = true;
@@ -128,16 +177,32 @@ registerPlugin("unmuteButton", function () {
         if (hasOverlay)
           return false;
 
-        const playerid = document.getElementById(player.id());
+//        const playerid = document.getElementById(player.id());
         let divOverlay = document.createElement("div");
 
         // +++ Add button's event listener +++
         divOverlay.addEventListener("click", function () {
           player.muted(false);
-          player.volume(volumeLevel);
+          player.volume(1);
           playerid.removeChild(divOverlay);
           isUnmuted = true;
           hasOverlay = false;
+        });
+        
+        /*** ONEND THE USER SHOULD DO A INTERACTION TO PLAY THE VIDEO AGAIN, IF IT WAS UNMUTED THE OVERLAY BUTTON WILL BE REMOVED ***/
+        player.on('ended', function() {
+
+//          alert("hasOverlay: " +hasOverlay );
+          console.log(isUnmuted);
+          if(hasPlayed && hasOverlay && !isUnmuted){
+            console.log("on ended remove divOverlay");
+            console.log(hasOverlay);
+            console.log(isUnmuted);
+            playerid.removeChild(divOverlay);
+            player.muted(false);
+            isUnmuted = true;
+          }
+
         });
         
         console.log("isUnmuted: "+isUnmuted);
@@ -201,9 +266,8 @@ registerPlugin("unmuteButton", function () {
       //     // Handle a load or playback error
       //   }
       // });
+
     }
-    
-    
     
     
 
@@ -220,4 +284,3 @@ registerPlugin("unmuteButton", function () {
 
   });
 });
-
