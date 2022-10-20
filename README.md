@@ -45,6 +45,15 @@ Translate to 11 of the most spoken languages in the world
 
     translate={"en":"UNMUTE","zh":"激活声音","hi":"ध्वनि सक्रिय करें","es":"ACTIVAR SONIDO","fr":"ACTIVER LE SON","ar":"تنشيط الصوت","bn":"নিঃশব্দ","ru":"ВКЛЮЧИТЬ ЗВУК","pt":"ATIVAR SOM","de":"TON AKTIVIEREN","id":"AKTIFKAN SUARA"};  
 
+#### Overwrite css  
+
+    .vjs-unmute-overlay {} /* Overlay transparent 100% height and width of the video size */
+    .vjs-unmute {} /*Unmute button*/
+    .vjs-unmute:before {} /* Videojs muted icon */
+    .vjs-wrapper {} /* the wrapper div added around the video */
+
+[See the CSS file](https://github.com/onigetoc/videojs-unmute/blob/main/dist/videojs-unmute.css)  
+
 #### To do
 * ~~Add language from browser language~~
 * ~~include css from the js file (may work in the next hours)~~ (Problem with :before style may just use normal .css file)
