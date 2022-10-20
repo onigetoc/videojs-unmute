@@ -1,33 +1,34 @@
-	
 /* Style vjs-unmute */
 .vjs-unmute-overlay {
   position: absolute;
-  background-color: rgba(43, 51, 63, .10);
-  /*  opacity: .99;*/
+  background-color: rgba(43,51,63,.10); 
+/*  opacity: .99;*/
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 1;
 }
+
 .vjs-unmute {
   left: 20px;
   top: 20px;
   border-radius: 5px;
   position: absolute;
-  /*  line-height: 30px;*/
+/*  line-height: 30px;*/
   text-align: center;
   cursor: pointer;
   font-size: 16px;
   color: white;
   font-weight: 500;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0,0,0,.5);
   padding: 12px 16px;
 }
+
 .vjs-unmute:before {
   font-size: 1.3em;
   margin-right: 8px;
-  /*
+/*
   line-height: .6;
   line-height: 1.67;
 */
