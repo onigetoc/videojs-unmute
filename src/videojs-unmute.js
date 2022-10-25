@@ -44,7 +44,7 @@ if (typeof translate[shortLang] === "undefined") {
 
 // for(shortLang of Object.keys(translate)){
 // // console.log(shortLang);
-//   alert(translate[shortLang])
+//   console.log(translate[shortLang])
 // }
 
 // Object.keys(translate).forEach(function(key) {
@@ -68,44 +68,104 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
 registerPlugin("unmuteButton", function () {
   // Cross-compatibility for Video.js 5 and 6.
   let player = this;
-  
-  let isUnmuted = false;
-  let hasPlayed = false;
-  let hasOverlay = false;
-  let allevents = false;
 
-  let setVol = player.volume();
-  console.log(setVol);
-  // let volumeLevel = setVol
-  let volumeLevel = 1;
+  let isMuted = false;
+  let hasPlayed = false;
+  let haveOverlay = false;
+  let allevents = false;
+  let isWrapped = false;
+
+  //  let setVol = player.volume();
+  //  console.log(setVol);
+  //  // let volumeLevel = setVol
+  //  let volumeLevel = 1; 
+
+
+  const thisplayerid = player.id();
+  const playerid = document.getElementById(thisplayerid);
+
+  if (!isWrapped) {
+
+    // create wrapper container
+    let wrapper = document.createElement('div');
+    wrapper.classList.add("vjs-wrapper");
+    // insert wrapper before el in the DOM tree
+    playerid.parentNode.insertBefore(wrapper, playerid);
+    // move el into wrapper
+    wrapper.appendChild(playerid);
+
+    isWrapped = true;
+
+  }
+
+  //    alert(player.currentType())
+
+  /******* CHECK IF AUTOPLAY *******/
+  if (player.autoplay()) {
+    player.muted(true);
+    isMuted = true;
+    //      haveOverlay = true;
+  } else {
+    return false;
+  }
+
+
+
+  /******************** CAN AUTOPLAY ? ***********************/
   
-//  
-//  if (player.autoplay()) {
-//    player.muted(true);
-//    // alert(player.muted)
-//  } else {
-//    return false;
-//  }
+//  let promiseTEST = player.play();
+
+//  player.ready(function () {
+//    var promiseTEST = player.play();
+//
+//    if (promiseTEST !== undefined) {
+//      promiseTEST.then(function () {
+//        alert("Autoplay started!");
+//      }).catch(function (error) {
+//        alert("Autoplay was prevented!");
+//      });
+//    }
+//  });
+  
+  /******************** CAN AUTOPLAY ? END ***********************/ 
+  
+//    startPlayPromise
+//      .then(function () {
+//        // alert('CONSOLE2: Autoplay started!')
+//        console.log("CONSOLE2: Autoplay started!");
+//        // Autoplay started!
+//      })
+//      .catch(function (error) {
+//        console.log("CONSOLE2 Autoplay was prevented!");
+//        // Autoplay was prevented.
+//      });
+
+
 
   // +++ Wait for loadedmetadata then try to play video +++
   player.ready(function () {
-    // +++ Wait for loadedmetadata then try to play video +++
-    // player.on("loadedmetadata", function () {
-
-    if (player.autoplay()) {
-      player.muted(true);
-      // alert(player.muted)
-    } else {
-      return false;
+    
+    let promiseTEST = player.play();
+    
+    if (promiseTEST !== undefined) {
+      
+//      promiseTEST;
+      
+      promiseTEST.then(function () {
+        console.log("Autoplay started!");
+      }).catch(function (error) {
+        console.log("Autoplay was prevented!");
+      });
     }
+
 
     // Play video which returns a promise
     let startPlayPromise = player.play();
-    let thisplayerid = player.id();
-    
+    //    let thisplayerid = player.id();
+
     player.on("play", function () {
       hasPlayed = true;
-      console.log("hasOverlay: "+hasPlayed)
+      console.log("haveOverlay: " + haveOverlay)
     });
 
     // alert(thisplayerid)
@@ -123,39 +183,86 @@ registerPlugin("unmuteButton", function () {
         // let thisplayerid = player.id();
         // let thisplayerid = player.id_;
         console.log("playerid " + thisplayerid);
-        
-        // IF hasOverlay AND AUTOPLAY WITH SOUND IT MEAN THE OVERLAY SHOULD NOT BE THERE AND DO NOT CREATE OVERLAY AGAIN AND RETURN FALSE
-        if (hasOverlay)
-          return false;
 
-        const playerid = document.getElementById(player.id());
+        // IF haveOverlay AND AUTOPLAY WITH SOUND IT MEAN THE OVERLAY SHOULD NOT BE THERE AND DO NOT CREATE OVERLAY AGAIN AND RETURN FALSE
+        if (haveOverlay)
+          return false;
+        else
+          haveOverlay = true;
+
+        //        const playerid = document.getElementById(player.id());
         let divOverlay = document.createElement("div");
 
         // +++ Add button's event listener +++
         divOverlay.addEventListener("click", function () {
           player.muted(false);
-          player.volume(volumeLevel);
+          isMuted = false;
+          player.load();
+          player.play();
+          player.volume(1);
           playerid.removeChild(divOverlay);
-          isUnmuted = true;
-          hasOverlay = false;
+          haveOverlay = false;
         });
-        
-        console.log("isUnmuted: "+isUnmuted);
-        console.log("hasOverlay: "+hasOverlay)
-        // IF ISUNMUTED BUTON OVERLAY WORKED, REMOVE OVERLAY AND DO NOT CONTINUE RETURN FALSE
-        if (isUnmuted) {
-          
-          if (hasOverlay){
+
+        let vjsLoading = document.querySelector('.vjs-loading-spinner');
+        // +++ Add button's event listener +++
+        vjsLoading.addEventListener("click", function () {
+          player.muted(false);
+          player.volume(1);
+          player.load();
+          player.play();
+
+          if (haveOverlay);
+          playerid.removeChild(divOverlay);
+
+          isMuted = false;
+          haveOverlay = false;
+        });
+
+
+        /******* CHECK IF IS PLAYING BUT THE OVERLAY BUTTON IS STILL THERE *******/
+        player.on('playing', function () {
+          //          isPlaying = true;
+          if (!player.muted() && hasPlayed && haveOverlay) {
             playerid.removeChild(divOverlay);
-            hasOverlay = false;
+            haveOverlay = false;
+            isMuted = false;
+            // alert(plhaveOverlay)
           }
-                               
+        });
+
+        /*** ONEND THE USER SHOULD DO A INTERACTION TO PLAY THE VIDEO AGAIN, IF IT WAS UNMUTED THE OVERLAY BUTTON WILL BE REMOVED ***/
+        player.on('ended', function () {
+
+          //          alert("haveOverlay: " +haveOverlay );
+          console.log(isMuted);
+          if (player.muted() && haveOverlay && hasPlayed) {
+            console.log("on ended remove divOverlay");
+            console.log(haveOverlay);
+            console.log(isMuted);
+            playerid.removeChild(divOverlay);
+            player.muted(false);
+            isMuted = false;
+          }
+
+        });
+
+        console.log("isMuted: " + isMuted);
+        console.log("haveOverlay: " + haveOverlay)
+        // IF isMuted=false BUTON OVERLAY WORKED, REMOVE OVERLAY AND DO NOT CONTINUE RETURN FALSE
+        if (!isMuted) {
+
+          if (haveOverlay) {
+            playerid.removeChild(divOverlay);
+            haveOverlay = false;
+          }
+
           return false;
           // alert("true");
         } else {
           // isUnmuted = false;
-          // hasPlayed = true;
-          hasOverlay = true;
+          // haveOverlay = true;
+          //haveOverlay = true;
         }
 
         // var styleElem = document.head.appendChild(
@@ -166,7 +273,7 @@ registerPlugin("unmuteButton", function () {
         // +++ Configure the button +++
         // div.textContent = "Unmute";
         divOverlay.classList.add("vjs-unmute-overlay");
-        divOverlay.setAttribute("style","z-index: 1");
+        divOverlay.setAttribute("style", "z-index: 1");
 
         // const playerid = document.getElementById("videoid");
         // var unmutedbutton = document.querySelector('#'+playerid+'.vjs-unmute-overlay');
@@ -201,23 +308,8 @@ registerPlugin("unmuteButton", function () {
       //     // Handle a load or playback error
       //   }
       // });
-    }
-    
-    
-    
-    
 
-    startPlayPromise
-      .then(function () {
-        // alert('CONSOLE2: Autoplay started!')
-        console.log("CONSOLE2: Autoplay started!");
-        // Autoplay started!
-      })
-      .catch(function (error) {
-        console.log("CONSOLE2 Autoplay was prevented!");
-        // Autoplay was prevented.
-      });
+    }
 
   });
 });
-
