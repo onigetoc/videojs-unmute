@@ -65,8 +65,13 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
 
 // videojs.registerPlugin("unmuteButton", function () { // VIDEOJS 7
 
+
+
+
 registerPlugin("unmuteButton", function () {
   // Cross-compatibility for Video.js 5 and 6.
+
+  
   let player = this;
 
   let isMuted = false;
@@ -111,6 +116,67 @@ registerPlugin("unmuteButton", function () {
 
 
 
+/****************** DETECTING USER EVENT ******************/
+
+
+//document.addEventListener('touchstart', handleTouchStart, false);        
+//document.addEventListener('touchmove', handleTouchMove, false);
+//
+//var xDown = null;                                                        
+//var yDown = null;
+//
+//function getTouches(evt) {
+//  console.log('getTouches');
+//  player.muted(false);
+//          isMuted = false;
+//  return evt.touches ||             // browser API
+//         evt.originalEvent.touches; // jQuery
+//}                                                     
+//                                                                         
+//function handleTouchStart(evt) {
+//    const firstTouch = getTouches(evt)[0];                                      
+//    xDown = firstTouch.clientX;                                      
+//    yDown = firstTouch.clientY;                                      
+//  console.log('handleTouchStart');
+//};                                                
+//                                                                         
+//function handleTouchMove(evt) {
+//    if ( ! xDown || ! yDown ) {
+//    console.log('handleTouchMove');
+//        return;
+//    }
+//  
+//            player.muted(false);
+//          isMuted = false;
+//
+//    var xUp = evt.touches[0].clientX;                                    
+//    var yUp = evt.touches[0].clientY;
+//
+//    var xDiff = xDown - xUp;
+//    var yDiff = yDown - yUp;
+//                                                                         
+//    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+//        if ( xDiff > 0 ) {
+//            /* right swipe */ 
+//        } else {
+//            /* left swipe */
+//        }                       
+//    } else {
+//        if ( yDiff > 0 ) {
+//            /* down swipe */ 
+//        } else { 
+//            /* up swipe */
+//        }                                                                 
+//    }
+//    /* reset values */
+//    xDown = null;
+//    yDown = null;                                             
+//};
+
+
+/****************** DETECTING USER EVENTS ******************/
+  
+  
   /******************** CAN AUTOPLAY ? ***********************/
   
 //  let promiseTEST = player.play();
@@ -191,6 +257,9 @@ registerPlugin("unmuteButton", function () {
 
         //        const playerid = document.getElementById(player.id());
         let divOverlay = document.createElement("div");
+        
+//        divOverlay.addEventListener('touchmove', handleTouchMove, false), function () {
+
 
         // +++ Add button's event listener +++
         divOverlay.addEventListener("click", function () {
