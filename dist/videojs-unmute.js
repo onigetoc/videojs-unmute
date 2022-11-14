@@ -113,8 +113,7 @@ registerPlugin("unmuteButton", function () {
   } else {
     return false;
   }
-
-
+ 
 /****************** DETECTING USER EVENT ******************/
 
 
