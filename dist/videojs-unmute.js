@@ -115,7 +115,6 @@ registerPlugin("unmuteButton", function () {
   }
 
 
-
 /****************** DETECTING USER EVENT ******************/
 
 

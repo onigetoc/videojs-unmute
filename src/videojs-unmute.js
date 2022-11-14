@@ -207,7 +207,6 @@ registerPlugin("unmuteButton", function () {
 //      });
 
 
-
   // +++ Wait for loadedmetadata then try to play video +++
   player.ready(function () {
     
