@@ -67,7 +67,6 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
 
 
 
-
 registerPlugin("unmuteButton", function () {
   // Cross-compatibility for Video.js 5 and 6.
 
