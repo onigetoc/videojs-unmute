@@ -197,7 +197,7 @@ registerPlugin("unmuteButton", function () {
         divOverlay.addEventListener("click", function () {
           player.muted(false);
           isMuted = false;
-          player.load();
+//          player.load();
           player.play();
           player.volume(1);
           playerid.removeChild(divOverlay);
@@ -209,7 +209,7 @@ registerPlugin("unmuteButton", function () {
         vjsLoading.addEventListener("click", function () {
           player.muted(false);
           player.volume(1);
-          player.load();
+//          player.load();
           player.play();
 
           if (haveOverlay);
